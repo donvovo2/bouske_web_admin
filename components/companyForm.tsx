@@ -8,12 +8,12 @@ import { useState } from "react";
 import { Company } from "../models/types";
 import { addCompany, updateCompany } from "../utility/company";
 
-export default function CompanyForm(props: { company: Company }) {
+export default function CompanyForm(props: { company?: Company }) {
   const [companyName, setCompanyName] = useState<string>(
-    props.company.company_name
+    props.company!.company_name
   );
   const [phoneNumber, setPhoneNumber] = useState<string>(
-    props.company.phone_number
+    props.company!.phone_number
   );
 
   // let currentCompany: Company;
