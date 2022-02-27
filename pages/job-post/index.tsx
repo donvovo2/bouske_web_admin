@@ -49,13 +49,13 @@ const columns: GridColDef[] = [
     renderCell: (cellValues: GridValueGetterParams) => {
       return (
         <>
-          <Link href={`/job-post/${cellValues.row.id}`}>
+          <Link href={`/job-post/${cellValues.row.id}`} passHref>
             <Button variant="contained" color="success">
               view
             </Button>
           </Link>
           |
-          <Link href={`/job-post/add/${cellValues.row.id}`}>
+          <Link href={`/job-post/add/${cellValues.row.id}`} passHref>
             <Button variant="contained" color="primary">
               Edit
             </Button>
@@ -114,7 +114,7 @@ function JobPostPage({ posts }: { posts: JobPost[] })  {
 //console.log()
   return (
     <>
-      <Link href="/job-post/add">
+      <Link href="/job-post/add" passHref>
         <Button variant="contained">Add Job Post</Button>
       </Link>
       <h1> List job posts</h1>

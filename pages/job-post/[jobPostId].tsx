@@ -61,8 +61,8 @@ function JobPostDetailPage({jobPost} : {jobPost: JobPost[]}) {
  const [jobDescription, setJobDescription] = useState<string>("");
  const [state, setState] = useState<string>("");
 
-   let currentjobPost: JobPost;
-  useEffect(() => {
+ useEffect(() => {
+    let currentjobPost: JobPost;
      currentjobPost = jobPost!.at(0)!;
 
       setJobTitle(currentjobPost.job_title);

@@ -4,8 +4,8 @@ import { useEffect } from "react";
 import { singOut, supabase } from "../utility/SupabaseClient";
 
 const Logout = () => {
-  const router = useRouter();
   useEffect(() => {
+    const router = useRouter();
     const logout = async () => {
       await singOut();
       router.push("/signin");

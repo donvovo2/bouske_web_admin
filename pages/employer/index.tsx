@@ -29,13 +29,13 @@ const columns: GridColDef[] = [
     renderCell: (cellValues: GridValueGetterParams) => {
       return (
         <>
-          <Link href={`/employer/${cellValues.row.id}`}>
+          <Link href={`/employer/${cellValues.row.id}`} passHref>
             <Button variant="contained" color="success">
               view
             </Button>
           </Link>
           |
-          <Link href={`/employer/add/${cellValues.row.id}`}>
+          <Link href={`/employer/add/${cellValues.row.id}`} passHref>
             <Button variant="contained" color="primary">
               Edit
             </Button>
@@ -94,7 +94,7 @@ export async function getStaticProps() {
 function EmployerPage(props: { companys: Company[] }) {
   return (
     <>
-      <Link href="/employer/add">
+      <Link href="/employer/add" passHref>
         <Button variant="contained">Add Company</Button>
       </Link>
       <h1> List Employer</h1>;

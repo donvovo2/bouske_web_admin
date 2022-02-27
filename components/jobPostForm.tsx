@@ -46,10 +46,10 @@ export default function JobPostForm(props: {
   const [city, setCity] = useState<string>("");
   const [jobDescription, setJobDescription] = useState<string>("");
   const [state, setState] = useState<string>("");
-  let currentjobPost: JobPost;
-
+  
   useEffect(() => {
     if (props.jobPost != null) {
+      let currentjobPost: JobPost;
       currentjobPost = props.jobPost!.at(0)!;
 
 

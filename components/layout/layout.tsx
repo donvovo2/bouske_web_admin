@@ -108,7 +108,7 @@ export default function Layout(props: { children: boolean | React.ReactChild | R
   };
 
   return (
-    <Box sx={{ display: 'flex' }}>
+    <Box sx={{ display: "flex" }}>
       <CssBaseline />
       <AppBar position="fixed" open={open}>
         <Toolbar>
@@ -118,8 +118,8 @@ export default function Layout(props: { children: boolean | React.ReactChild | R
             onClick={handleDrawerOpen}
             edge="start"
             sx={{
-              marginRight: '36px',
-              ...(open && { display: 'none' }),
+              marginRight: "36px",
+              ...(open && { display: "none" }),
             }}
           >
             <MenuIcon />
@@ -132,44 +132,48 @@ export default function Layout(props: { children: boolean | React.ReactChild | R
       <Drawer variant="permanent" open={open}>
         <DrawerHeader>
           <IconButton onClick={handleDrawerClose}>
-            {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
+            {theme.direction === "rtl" ? (
+              <ChevronRightIcon />
+            ) : (
+              <ChevronLeftIcon />
+            )}
           </IconButton>
         </DrawerHeader>
         <Divider />
         <List>
           {[
-              {name: 'Job',path:'/job-post/', icon : <WorkIcon/>},
-              {name: 'Employer',path:'/employer/', icon : <BusinessIcon/>},
-           {name: 'Seeker',path:'/seeker/', icon : <PersonIcon/>}, 
-        ].map((menuItem, index) => (
-          <Link href= {menuItem.path} ><ListItem button key={menuItem.name}>
-              <ListItemIcon>
-                { menuItem.icon}
-              </ListItemIcon>
-              <ListItemText primary={menuItem.name} />
-            </ListItem>
-            </Link> 
+            { name: "Job", path: "/job-post/", icon: <WorkIcon /> },
+            { name: "Employer", path: "/employer/", icon: <BusinessIcon /> },
+            { name: "Seeker", path: "/seeker/", icon: <PersonIcon /> },
+          ].map((menuItem, index) => (
+            <Link href={menuItem.path} key={menuItem.name} passHref>
+              <ListItem button>
+                <ListItemIcon>{menuItem.icon}</ListItemIcon>
+                <ListItemText primary={menuItem.name} />
+              </ListItem>
+            </Link>
           ))}
         </List>
         <Divider />
         <List>
-          {[  {name: 'Settings',path:'/', icon : <SettingsIcon/>},
-           {name: 'Login',path:'/signin', icon : <LoginIcon/>}, 
-           {name: 'Register',path:'/signup', icon : <PersonAddAltIcon/>}, 
-           {name: 'logout',path:'/logout', icon : <LogoutIcon/>}].map((menuItem, index) => (
-            <Link href= {menuItem.path} ><ListItem button key={menuItem.name}>
-            <ListItemIcon>
-              { menuItem.icon}
-            </ListItemIcon>
-            <ListItemText primary={menuItem.name} />
-          </ListItem>
-          </Link> 
+          {[
+            { name: "Settings", path: "/", icon: <SettingsIcon /> },
+            { name: "Login", path: "/signin", icon: <LoginIcon /> },
+            { name: "Register", path: "/signup", icon: <PersonAddAltIcon /> },
+            { name: "logout", path: "/logout", icon: <LogoutIcon /> },
+          ].map((menuItem, index) => (
+            <Link href={menuItem.path} key={menuItem.name} passHref>
+              <ListItem button>
+                <ListItemIcon>{menuItem.icon}</ListItemIcon>
+                <ListItemText primary={menuItem.name} />
+              </ListItem>
+            </Link>
           ))}
         </List>
       </Drawer>
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         <DrawerHeader />
-       {props.children}
+        {props.children}
       </Box>
     </Box>
   );
