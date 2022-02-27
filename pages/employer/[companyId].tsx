@@ -42,8 +42,8 @@ export const getStaticProps: GetStaticProps = async (context) => {
 function CompanyDetailPage({ company }: { company: Company }) {
   const router = useRouter();
   const companyId = router.query.companyId;
-  const [phoneNumber, setPhoneNumber] = useState<string>(company.phone_number);
-  const [companyName, setCompanyName] = useState<string>(company.company_name);
+  const [phoneNumber, setPhoneNumber] = useState<string>('');
+  const [companyName, setCompanyName] = useState<string>('');
 
   // let currentcompany: Company;
   // // useEffect(() => {

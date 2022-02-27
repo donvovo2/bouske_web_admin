@@ -80,7 +80,7 @@ function EditJobPostPage(props: {
          companys={props.companys}
          industrys={props.industrys}
          jobTypes={props.jobTypes}
-         jobPost = {props.jobPost}
+         jobPost={props.jobPost}
        />
      </>
    );

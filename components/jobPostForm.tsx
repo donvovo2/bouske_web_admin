@@ -37,6 +37,8 @@ export default function JobPostForm(props: {
   jobTypes: JobType[];
   jobPost?: JobPost[];
 }) {
+   console.log("job type",props.jobTypes);
+   console.log(props.industrys);
   const [deadline, setDeadline] = useState<string>("");
   const [publicationDate, setPublicationDate] = useState<string>("");
   const [jobTitle, setJobTitle] = useState<string>("");
@@ -46,13 +48,14 @@ export default function JobPostForm(props: {
   const [city, setCity] = useState<string>("");
   const [jobDescription, setJobDescription] = useState<string>("");
   const [state, setState] = useState<string>("");
+  const [jobTypes, setJobTypes] = useState<JobType[]>([]);
+  const [industrys, setIndustrys] = useState<Industry[]>([]);
+  const [companys, setCompanys] = useState<Company[]>([]);
   
   useEffect(() => {
     if (props.jobPost != null) {
       let currentjobPost: JobPost;
       currentjobPost = props.jobPost!.at(0)!;
-
-
       setJobTitle(currentjobPost.job_title);
       setJobType(currentjobPost.job_type);
       setIndustry(currentjobPost.industry);
@@ -61,6 +64,9 @@ export default function JobPostForm(props: {
       setState(currentjobPost.state!);
       setPublicationDate(currentjobPost.publication_date!);
       setDeadline(currentjobPost.deadline!);
+      setJobTypes(props.jobTypes);
+      setIndustrys(props.industrys);
+      setCompanys(props.companys);
     }
   }, []);
 
@@ -125,7 +131,7 @@ export default function JobPostForm(props: {
                 fullWidth
                 label="Job Type"
               >
-                {props.jobTypes.map((option) => (
+                {jobTypes.map((option) => (
                   <MenuItem
                     key={option.job_type_name}
                     value={option.job_type_name}
@@ -144,7 +150,7 @@ export default function JobPostForm(props: {
                 value={industry}
                 onChange={(e) => setIndustry(e.target.value)}
               >
-                {props.industrys.map((option) => (
+                {industrys.map((option) => (
                   <MenuItem
                     key={option.industry_name}
                     value={option.industry_name}
@@ -163,7 +169,7 @@ export default function JobPostForm(props: {
                 fullWidth
                 label="Company"
               >
-                {props.companys.map((option) => (
+                {companys.map((option) => (
                   <MenuItem key={option.id} value={option.id}>
                     {option.company_name}
                   </MenuItem>

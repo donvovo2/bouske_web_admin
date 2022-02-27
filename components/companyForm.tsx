@@ -10,10 +10,10 @@ import { addCompany, updateCompany } from "../utility/company";
 
 export default function CompanyForm(props: { company?: Company }) {
   const [companyName, setCompanyName] = useState<string>(
-    props.company!.company_name
+   ""
   );
   const [phoneNumber, setPhoneNumber] = useState<string>(
-    props.company!.phone_number
+    ""
   );
 
   // let currentCompany: Company;
